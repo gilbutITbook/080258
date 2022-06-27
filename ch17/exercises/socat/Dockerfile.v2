@@ -1,0 +1,8 @@
+FROM debian:stretch-slim
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    curl=7.52.1-5+deb9u16 \
+    socat=1.7.3.1-2+deb9u1 \
+ && rm -rf /var/lib/apt/lists/*
+
