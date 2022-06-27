@@ -1,0 +1,2 @@
+FROM golang:1.13
+ENV CGO_ENABLED=0
