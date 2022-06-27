@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  todo-web:
+    ports:
+      - "8080:80"
+    environment:
+      - Database:Provider=Postgres
+    networks:
+      - app-net
+
+  todo-db:
+    image: diamol/postgres:11.5
+    environment:
+      - PGDATA=/data
+    ports:
+      - "5433:5432"
+    volumes:
+      - "todo-database:/data"
+    networks:
+      - app-net
+
+networks:
+  app-net:
+    name: todo-test
+
+secrets:
+  todo-db-connection:
+    file: postgres-connection.json
+
+volumes:
+  todo-database:
