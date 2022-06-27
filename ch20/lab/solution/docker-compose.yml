@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: diamol/nginx
+    ports:
+      - "80:80"
+    networks:
+      - ch20
+
+networks:
+  ch20:
+    external:
+      name: ch20
